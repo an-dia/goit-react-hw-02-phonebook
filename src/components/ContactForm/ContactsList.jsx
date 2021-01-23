@@ -6,16 +6,18 @@ import s from './ContactsList.module.css';
 const ContactsList = ({ contacts, onDeleteContact }) => {
   return (
     <ul className={s.contactList}>
-      {contacts.map(({ id, name, number }) => (
-        <>
+      {contacts.map(({ id, name, number }) => {
+        return (
           <li className={s.listItem} key={id}>
-            {name} : {number}
+            <p className={s.text}>
+              {name} : {number}
+            </p>
             <button className={s.button} type="button" onClick={() => onDeleteContact(id)}>
               Delete
             </button>
           </li>
-        </>
-      ))}
+        );
+      })}
     </ul>
   );
 };
